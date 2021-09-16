@@ -69,25 +69,22 @@ function checaEmpate(){
 
 function encerraJogo(vencedor = null){
     const telaWin = document.querySelector("#telaWin")
-    const msgWin = document.createElement("p")
-    let mensagem = null;
-
+    const msgWin = document.querySelector("#msgWinner")
+    const msgCont = document.querySelector("#contagem")
     telaWin.classList.add("mostrar")
-    telaWin.appendChild(msgWin)
 
     if(vencedor){
         if(vencedor == "X"){
-            msgWin.innerHTML = `<p>O vencedor foi o <span id="Xmark">X</span></p>`
+            msgWin.innerHTML = `<p>O vencedor foi o <span class="Xmark">X</span></p>`
         }else{
-            msgWin.innerHTML = `<p>O vencedor foi o <span id="Omark">O</span></p>`
+            msgWin.innerHTML = `<p>O vencedor foi o <span class="Omark">O</span></p>`
         }
     }else{
         msgWin.innerHTML = `<p>Houve um empate!</p>`
     }
     let contador = 3
     setInterval(() => {
-        msgWin.innerHTML = `<p>Reiniciando em ${contador--}</p>`
-
+        msgCont.innerHTML = `<p id="contagem">Reiniciando em ${contador--}</p>`
     }, 1000)
 
     setTimeout(() => location.reload(), 4000)
