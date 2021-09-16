@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&display=swap');
+/* font-family: 'Asap', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+/* font-family: 'Josefin Sans', sans-serif; */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #690770;
+    background-image: radial-gradient(circle ,transparent, transparent,#440347d7);
+}
+header{
+    margin: 30px;
+}
+#titulo{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#titulo::before{
+    content: '';
+    width: 40%;
+    height: 4px;
+    background-color: currentColor;
+    display: block;
+    margin-bottom: 10px;
+}
+#titulo::after{
+    content: '';
+    width: 40%;
+    height: 4px;
+    background-color: currentColor;
+    display: block;
+    margin: 10px;
+}
+#mostrador{
+    text-align: center;
+    font-size: 22px;
+}
+.tabuleiro{
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(3, 120px);
+    gap: 1rem;
+    background-color: #B10BBD;
+    width: min-content;
+    padding: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.678) 2px 2px 15px;
+    border-radius: 10px;
+}
+
+.cell{
+    background-color: #E857F2;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.671) 1px 1px 10px;
+    transition: .6s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover{
+    background-color: #c849d1;
+}
+/* color: #9BF257;color: #F2ED63; */
+.Xmark{
+    color: #0ed31b;
+    text-shadow: 2px 2px 10px #07700E;
+}
+.Omark{
+    color: #F0E80C;
+    text-shadow: 2px 2px 10px #706D06;
+}
+#telaWin p, .mark{
+    font-size: 80px;
+    font-family: 'Asap', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* TELA DE VITÓRIA */
+
+#telaWin{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.473);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s linear
+}
+
+#telaWin.mostrar{
+    opacity: 1;
+}
+
+/* Responsivo */
+
+@media only screen and (max-width: 550px) {
+    .tabuleiro{
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+    #telaWin p, .mark{
+        font-size: 50px;
+        font-family: 'Asap', sans-serif;
+        font-weight: bold;
+        text-align: center;
+    }
+}
